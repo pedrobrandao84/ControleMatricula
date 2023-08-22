@@ -1,19 +1,27 @@
 // src/App.tsx
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Home from './view/Home';
+import Dashboard from './view/dashboard/Dashboard';
 import Login from './view/login/Login';
+import PrivateRoute from './components/PrivateRoute';
+import { AuthProvider } from './context/AuthContext';
+import './App.css';
 
 const App: React.FC = () => {
-  const handleLogin = (email: string, password: string) => {
-    // Lógica de autenticação aqui (ex: fazer uma requisição para um servidor)
-    console.log('Email:', email);
-    console.log('Password:', password);
-  };
-
   return (
     <div className="App">
       <header className="App-header">
-        <Login onLogin={handleLogin} />
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/login" component={Login} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+          </Switch>
+        </Router>
+      </AuthProvider>
       </header>
     </div>
   );

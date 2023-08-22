@@ -1,26 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import InputForm from '../../components/input/InputForm';
-import ConfirmCancelButton from '../../components/button/ConfirmCancelButton';
+import ConfirmButton from '../../components/button/ConfirmButton';
 import Logo from '../../images/logo_512.png';
+import { AuthContext } from '../../context/AuthContext';
 
 interface LoginProps {
     onLogin: (email: string, password: string) => void;
 }
 
 const Login: React.FC<LoginProps> = ({ onLogin }) => {
+    const { login } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-        onLogin(email, password);
-    };
-
     const handleConfirm = () => {
         console.log('Confirmado!');
-    };
-
-    const handleCancel = () => {
-        console.log('Cancelado!');
     };
 
     return (
@@ -44,7 +38,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <ConfirmCancelButton hideCancel={true} onConfirm={handleConfirm} onCancel={handleCancel} />
+            <ConfirmButton onConfirm={handleConfirm} />
         </div>
     );
 };
