@@ -1,0 +1,51 @@
+/* src/components/ConfirmCancelButton.css */
+.confirm-cancel-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .confirm-button {
+    background-color: #22b64e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .cancel-button {
+    background-color: #b62e2e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .custom-button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .custom-button:hover {
+    background-color: #45a049;
+  }
+  
+  .danger-button {
+    background-color: #f44336;
+  }
+  
+  .danger-button:hover {
+    background-color: #d32f2f;
+  }
